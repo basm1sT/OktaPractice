@@ -1,2 +1,1 @@
-# octagon-example
 # OktaPractice
