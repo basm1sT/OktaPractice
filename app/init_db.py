@@ -4,13 +4,11 @@ from app.db.models import Base
 from app.db.crud import create_category, create_book
 
 def init_db():
-    # Создаём таблицы
     Base.metadata.create_all(bind=engine)
     print("Таблицы books и categories успешно созданы!")
 
     db: Session = SessionLocal()
     try:
-        # Добавляем 2 категории
         print("\nДобавляем категории...")
         cat1 = create_category(db, "Художественная литература")
         cat2 = create_category(db, "Техническая литература")

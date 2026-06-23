@@ -8,7 +8,6 @@ class Category(Base):
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String(200), unique=True, nullable=False, index=True)
 
-    # Связь с книгами
     books = relationship("Book", back_populates="category", cascade="all, delete-orphan")
 
 
@@ -21,8 +20,6 @@ class Book(Base):
     price = Column(Numeric(10, 2), nullable=False)
     url = Column(String(500), nullable=True)
 
-    # Внешний ключ на категорию
     category_id = Column(Integer, ForeignKey("categories.id"), nullable=False, index=True)
 
-    # Связь с категорией
     category = relationship("Category", back_populates="books")
